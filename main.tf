@@ -20,8 +20,7 @@ resource "azurerm_resource_group" "backend-rg" {
   location = "eastus2"
 
   tags = {
-    environment = "development",
-    environment = "production"
+    environment = "all"
   }
 }
 
@@ -29,6 +28,10 @@ resource "azurerm_resource_group" "backend-rg" {
 resource "azurerm_resource_group" "rg" {
   name     = "rg-tf-dev"
   location = "eastus2"
+
+  tags = {
+    environment = "development"
+  }
 }
 
 #Backend Storage Account. Common for all environments.
@@ -40,8 +43,7 @@ resource "azurerm_storage_account" "backend-sa" {
   account_replication_type = "LRS"
 
   tags = {
-    environment = "development",
-    environment = "production"
+    environment = "all"
   }
 }
 
